@@ -1,13 +1,11 @@
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import cucumber.api.java.fr.Etantdonné;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import java.util.concurrent.TimeUnit;
-
 
 /**
  * <p>
@@ -29,6 +27,7 @@ import java.util.concurrent.TimeUnit;
  * the life of the JVM.
  * </p>
  */
+
 public class SharedDriver extends EventFiringWebDriver {
     private static final WebDriver REAL_DRIVER = new FirefoxDriver();
     private static boolean isGuidewireLoggedIn = false;

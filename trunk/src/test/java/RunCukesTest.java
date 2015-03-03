@@ -7,7 +7,6 @@ import cucumber.api.junit.Cucumber;
  */
 @RunWith(Cucumber.class)
 @CucumberOptions(monochrome = true,format = "json:reports/cucumber-json-report.json")
-//@CucumberOptions(monochrome = true,format = "junit:reports/cucumber-junit-report.xml")
 public class RunCukesTest {
 
 }
