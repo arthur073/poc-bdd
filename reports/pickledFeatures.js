@@ -1,7 +1,7 @@
 jsonPWrapper ({
   "Features": [
     {
-      "RelativeFolder": "AUTO\\Carambolage_PP.feature",
+      "RelativeFolder": "AUTO\\002_Carambolage_PP.feature",
       "Feature": {
         "Name": "UC#002 - Carambolage PP",
         "Description": "",
@@ -151,9 +151,9 @@ jsonPWrapper ({
           "WasSuccessful": true
         },
         "Tags": [
-          "@Carambolage",
-          "@PP",
-          "@Rabat"
+          "@carambolage",
+          "@pp",
+          "@rabat"
         ]
       },
       "Result": {
@@ -162,7 +162,7 @@ jsonPWrapper ({
       }
     },
     {
-      "RelativeFolder": "AUTO\\Incendie_PP.feature",
+      "RelativeFolder": "AUTO\\001_Incendie_PP.feature",
       "Feature": {
         "Name": "UC#001 - Incendie PP",
         "Description": "",
@@ -312,9 +312,9 @@ jsonPWrapper ({
           "WasSuccessful": true
         },
         "Tags": [
-          "@Incendie",
-          "@PP",
-          "@Rabat"
+          "@incendie",
+          "@pp",
+          "@rabat"
         ]
       },
       "Result": {
@@ -325,7 +325,7 @@ jsonPWrapper ({
   ],
   "Configuration": {
     "SutName": "PIF-SAM",
-    "SutVersion": "0.2",
-    "GeneratedOn": "27 février 2015 11:12:12"
+    "SutVersion": "0.1",
+    "GeneratedOn": "3 mars 2015 10:26:43"
   }
 });

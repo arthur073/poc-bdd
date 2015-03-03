@@ -6,20 +6,20 @@ import org.openqa.selenium.firefox.FirefoxDriver;
  * Created by averger on 26/02/2015.
  */
 public class SeleniumSteps {
-    private static SharedDriver sharedDriver;
-
+    private static SharedDriver driver;
+    //static WebDriver driver;
+    //static String baseURL;
+    //String nodeURL;
 
     @Before
     public void initiateWebBrowser() {
-        sharedDriver = new SharedDriver();
+        driver = new SharedDriver();
     }
+
 
     public static boolean ClaimIntake(String claimType) throws InterruptedException {
-        String actualTitle = sharedDriver.getTitle();
-        System.out.println("We are logged into : " + actualTitle);
+        System.out.println("Test " + claimType + "[start]");
+        System.out.println("Test " + claimType + "[end]");
         return true;
     }
-
-
-
 }
