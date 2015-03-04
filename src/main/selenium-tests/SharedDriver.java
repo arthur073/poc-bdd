@@ -2,9 +2,12 @@ import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -29,8 +32,11 @@ import java.util.concurrent.TimeUnit;
  */
 
 public class SharedDriver extends EventFiringWebDriver {
-    private static final WebDriver REAL_DRIVER = new FirefoxDriver();
+    //private static String pathToBinary = "C:\\Users\\s819578\\AppData\\Local\\Mozilla Firefox\\firefox.exe";
+    //private static final WebDriver REAL_DRIVER = new FirefoxDriver(new FirefoxBinary(new File(pathToBinary)),new FirefoxProfile());
     private static boolean isGuidewireLoggedIn = false;
+    private static final WebDriver REAL_DRIVER = new FirefoxDriver();
+
     private static final Thread CLOSE_THREAD = new Thread() {
         @Override
         public void run() {
