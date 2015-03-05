@@ -2,12 +2,13 @@ import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
-import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -32,9 +33,8 @@ import java.util.concurrent.TimeUnit;
  */
 
 public class SharedDriver extends EventFiringWebDriver {
-    //private static String pathToBinary = "C:\\Users\\s819578\\AppData\\Local\\Mozilla Firefox\\firefox.exe";
-    //private static final WebDriver REAL_DRIVER = new FirefoxDriver(new FirefoxBinary(new File(pathToBinary)),new FirefoxProfile());
     private static boolean isGuidewireLoggedIn = false;
+    private static String loginType = "";
     private static final WebDriver REAL_DRIVER = new FirefoxDriver();
 
     private static final Thread CLOSE_THREAD = new Thread() {
@@ -48,9 +48,9 @@ public class SharedDriver extends EventFiringWebDriver {
         Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
     }
 
+
     public SharedDriver() {
         super(REAL_DRIVER);
-        logIntoGuidewire();
     }
 
     @Override
@@ -76,13 +76,19 @@ public class SharedDriver extends EventFiringWebDriver {
         }
     }
 
-    private void logIntoGuidewire() {
-        if (!isGuidewireLoggedIn) {
-            REAL_DRIVER.get("http://frparamdm-rsg:8983/cc-d1");
-            REAL_DRIVER.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-            REAL_DRIVER.findElement(By.id("Login:LoginScreen:LoginDV:username-inputEl")).sendKeys("su");
-            REAL_DRIVER.findElement(By.id("Login:LoginScreen:LoginDV:password-inputEl")).sendKeys("gw" + Keys.ENTER);
-            isGuidewireLoggedIn = true;
-        }
+    public static boolean getIsGuidewireLoggedIn() {
+        return isGuidewireLoggedIn;
+    }
+
+    public static void setIsGuidewireLoggedIn(boolean isGuidewireLoggedIn) {
+        SharedDriver.isGuidewireLoggedIn = isGuidewireLoggedIn;
+    }
+
+    public static String getLoginType() {
+        return loginType;
+    }
+
+    public static void setLoginType(String loginType) {
+        SharedDriver.loginType = loginType;
     }
 }
